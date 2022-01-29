@@ -1,0 +1,31 @@
+---
+title: "STAA 566 HW1_Schulz_Sherry"
+author: "Sherry Schulz"
+date: "2/3/2022"
+output: html_document
+knit: (function(input_file, encoding){out_dir<-'docs';rmarkdown::render(input_file,encoding=encoding,output_file=file.path(dirname(input_file),out_dir, 'index.html'))})
+---
+
+```{r}
+#print(getwd()) #Get and print current working directory.
+#setwd("C:/Users/syschulz/Documents/GitHub/HW1_Schulz_Sherry") #Set Current working directory.
+read.csv("cereal.csv")
+cereal<-read.csv("cereal.csv")
+```
+
+
+```{r}
+#Loading packages needed:
+#library(ggplot2)
+#install.packages("viridisLite")
+#library(viridisLite)
+```
+
+
+```{r}
+
+cereal_plot<-ggplot(data = cereal, mapping=aes(x=sugars, y=calories, color=mfr))+geom_point(aes(size=cups/0.5),alpha=.5,shape=16)+ggtitle("Calories By Sugar Level Per Serving By Cereal Manufacturer")
+cereal_plot<-cereal_plot+scale_color_viridis_d()
+cereal_plot
+```
+
